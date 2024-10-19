@@ -108,7 +108,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 **© 2024 Data Visualization Dashboard**  
 *Created with ❤️ by Max*
-```
+
 
 ### Key Sections in the README:
 1. **Overview**: Brief introduction to what the project is about.
