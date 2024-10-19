@@ -1,5 +1,4 @@
 
-```markdown
 # Data Visualization Dashboard
 
 ## Overview
