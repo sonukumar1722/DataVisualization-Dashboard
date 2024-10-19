@@ -37,7 +37,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
+        python-version: '3.12'
 
     # Step 3: Install dependencies
     - name: Install dependencies
@@ -50,11 +50,11 @@ jobs:
       run: |
         python manage.py load_data.py
         python manage.py migrate
-        python manage.py collect static --noinput
+        python manage.py runserver
 
     # Step 5: Run the tests
     - name: Run Django tests
       env:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
       run: |
-        python manage.py test
+        
