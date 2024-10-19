@@ -37,7 +37,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.10'  # or use Python version that fits your project
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -45,19 +45,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Navigate to the correct directory
-      - name: Change directory to Django project
-        run: cd mydashboard
-
-      # Step 5: Run migrations and collect static files
-      - name: Run migrations and collect static
+      # Step 4: Navigate to the correct directory and run migrations and collect static
+      - name: Migrate and Collect Static
+        working-directory: ./mydashboard   # Add this to specify the correct working directory
         run: |
           python manage.py migrate
-          python manage.py runserver
+          python manage.py collectstatic --noinput
 
-      # Step 6: Run the tests
+      # Step 5: Run tests
       - name: Run Django tests
+        working-directory: ./mydashboard   # Again, specify the correct directory for the test command
         env:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
-        run: |
-          python manage.py test
+        run: 
