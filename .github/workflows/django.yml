@@ -30,7 +30,7 @@ jobs:
 
     steps:
     # Step 1: Check out the repository
-    - name: Checkout repository
+    - name: mydasboard
       uses: actions/checkout@v3
 
     # Step 2: Set up Python environment
@@ -48,7 +48,7 @@ jobs:
     # Step 4: Run migrations and collect static files
     - name: Run migrations and collect static
       run: |
-        python manage.py load_data.py
+        
         python manage.py migrate
         python manage.py runserver
 
